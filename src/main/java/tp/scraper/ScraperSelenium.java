@@ -21,7 +21,7 @@ public class ScraperSelenium {
 
 	static final String WEB_DRIVER_KEY = "webdriver.chrome.driver";
 	private static final String SCRAPE_WEB_PAGE_KEY = "scrape.web.page";
-	private static final String XPATH_KEY = "search.xpath";
+	private static final String XPATH_KEY = "scrape.xpath";
 
     static final long WAIT_BEFORE_CHECK_READY_STATE_IN_SECONDS = 1;
 	static final long WAIT_TIME_OUT_IN_SECONDS = 30;
