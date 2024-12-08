@@ -1,7 +1,7 @@
 # selenium_data_scraper
 Simple demo, how to use Selenium for Web data scraping
 
-Today evening, I will put here, demo code.
+This Selenium uses real localy installed web browser.
+To make it work, one needs to download a web browser driver, with a version which coresponds exactly to a web browser version.
 
-Currently I have it for some bank scraping but I don't want to publish it. So I need modify it to some other site : maybe read emails after login from gazeta.pl
-
+Path to a driver executable, as well as a page to scrape and a scrape XPath are in a `resources/initial.properties` file.  
