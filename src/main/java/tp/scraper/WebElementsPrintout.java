@@ -10,8 +10,8 @@ public interface WebElementsPrintout {
 		final String PRINT_FORMAT = "%-75.75s | %-25s%n";
 
 		for (WebElement entry : readInfoEntries) {
-			String href = entry.getAttribute("href");
-			String title = entry.findElement(By.tagName("span")).getText();
+			CharSequence href = entry.getDomAttribute("href");
+			CharSequence title = entry.findElement(By.xpath("./span")).getDomProperty("textContent");
 			System.out.printf(PRINT_FORMAT, title, href);
 		}
 
