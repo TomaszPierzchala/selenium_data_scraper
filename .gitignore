@@ -35,3 +35,6 @@ hs_err_pid*
 #xml files
 *.xml
 !pom.xml
+
+#IntelliJ
+/.idea/
