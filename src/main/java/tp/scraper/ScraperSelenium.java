@@ -44,7 +44,7 @@ public class ScraperSelenium {
 		WebDriverManager.chromedriver().setup();
 		// silent mode - no browser window
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
+//		options.addArguments("--headless=new");
 		//
 		driver = new ChromeDriver(options);
 	}
