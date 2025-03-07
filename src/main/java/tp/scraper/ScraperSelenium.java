@@ -1,20 +1,21 @@
 package tp.scraper;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Properties;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import tp.scraper.auxilary.GetPropertyValues;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Properties;
 
 public class ScraperSelenium {
     static final String INITIAL_PROPERTIES_FILE = "initial.properties";
@@ -40,7 +41,7 @@ public class ScraperSelenium {
 	}
     private void setupChromDriver() {
 		System.setProperty(WEB_DRIVER_KEY, initProps.getProperty(WEB_DRIVER_KEY));
-
+		WebDriverManager.chromedriver().setup();
 		// silent mode - no browser window
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
@@ -62,7 +63,7 @@ public class ScraperSelenium {
 		};
 		try {
 			Thread.sleep(WAIT_BEFORE_CHECK_READY_STATE_IN_SECONDS * 1000);
-			WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME_OUT_IN_SECONDS);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME_OUT_IN_SECONDS));
 			wait.until(expectation);
 		} catch (Throwable error) {
 			Assert.fail("Timeout waiting for Page Load Request to complete.");
